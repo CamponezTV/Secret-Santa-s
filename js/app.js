@@ -2,6 +2,16 @@
 
     function adicionar() {
         let amigo = document.getElementById('nome-amigo');
+        if (amigo.value == '') {
+            alert('Type a friend name!');
+            return;
+        }
+
+        if (amigos.includes(amigo.value)) {
+            alert('Name already taken!');
+            return;
+        }
+       
         let lista = document.getElementById('lista-amigos');
 
         amigos.push(amigo.value);
@@ -16,6 +26,11 @@
     }
 
     function sortear() {
+        if (amigos.length < 4) {
+            alert("Add at least 4 Santa's!")
+            return;
+        }
+        
         embaralha(amigos);
 
         let sorteio = document.getElementById('lista-sorteio');
